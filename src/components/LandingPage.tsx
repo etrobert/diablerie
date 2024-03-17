@@ -11,7 +11,7 @@ const LandingPage = () => (
       height={1477}
       alt="Picture of the studio"
     />
-    <h1 className="scroll-m-20 text-6xl lg:text-5xl text-primary font-hot-winner-team">
+    <h1 className="scroll-m-20 text-6xl lg:text-8xl text-primary font-hot-winner-team">
       LA DIABLERIE
     </h1>
     <Link
