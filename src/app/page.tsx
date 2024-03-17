@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { TypographyH1 } from "@/components/ui/typography";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
         alt="Picture of the studio"
       />
       <div>
-        <h1 className="text-5xl">La Diablerie</h1>
+        <TypographyH1 text="La Diablerie" />
         <Button>Book Now</Button>
       </div>
     </main>
