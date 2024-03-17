@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Rye } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 const rye = Rye({ subsets: ["latin"], weight: "400" });
 
@@ -23,7 +24,12 @@ export default function Home() {
       >
         LA DIABLERIE
       </h1>
-      <Button>Book Now</Button>
+      <Link
+        href="https://www.instagram.com/ladiablerietattoo"
+        className={buttonVariants()}
+      >
+        Book Now
+      </Link>
     </main>
   );
 }
