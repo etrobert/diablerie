@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 const rye = Rye({ subsets: ["latin"], weight: "400" });
 
 const LandingPage = () => (
-  <section className="dark h-screen grid place-content-center gap-4 justify-items-center">
+  <section className="h-screen grid place-content-center gap-4 justify-items-center">
     <Image
       className="absolute object-cover h-full z-[-1] brightness-50"
       src="/studio-4.jpeg"
