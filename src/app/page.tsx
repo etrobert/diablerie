@@ -1,22 +1,29 @@
 import Image from "next/image";
+import { Rye } from "next/font/google";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { TypographyH1 } from "@/components/ui/typography";
+
+const rye = Rye({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
   return (
-    <main className="dark text-white h-screen grid place-items-center">
+    <main className="dark h-screen grid place-content-center gap-4 justify-items-center">
       <Image
-        // className="absolute right-0 top-0 h-screen w-auto"
-        className="absolute object-cover h-full z-[-1]"
+        className="absolute object-cover h-full z-[-1] brightness-50"
         src="/studio-4.jpeg"
         width={1440}
         height={1477}
         alt="Picture of the studio"
       />
-      <div>
-        <TypographyH1 text="La Diablerie" />
-        <Button>Book Now</Button>
-      </div>
+      <h1
+        className={cn(
+          rye.className,
+          "scroll-m-20 text-4xl lg:text-5xl text-primary",
+        )}
+      >
+        LA DIABLERIE
+      </h1>
+      <Button>Book Now</Button>
     </main>
   );
 }
