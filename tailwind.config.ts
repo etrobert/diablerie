@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        "hot-winner-team": "var(--font-hot-winner-team)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

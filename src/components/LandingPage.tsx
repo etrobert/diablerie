@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Rye } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-
-const rye = Rye({ subsets: ["latin"], weight: "400" });
 
 const LandingPage = () => (
   <section className="h-screen grid place-content-center gap-4 justify-items-center">
@@ -15,12 +11,7 @@ const LandingPage = () => (
       height={1477}
       alt="Picture of the studio"
     />
-    <h1
-      className={cn(
-        rye.className,
-        "scroll-m-20 text-4xl lg:text-5xl text-primary",
-      )}
-    >
+    <h1 className="scroll-m-20 text-6xl lg:text-5xl text-primary font-hot-winner-team">
       LA DIABLERIE
     </h1>
     <Link
