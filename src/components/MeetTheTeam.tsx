@@ -20,7 +20,7 @@ const team = [
 ];
 
 const MeetTheTeam = () => (
-  <section className="grid gap-4 px-4 py-8 text-primary">
+  <section id="meet-the-team" className="grid gap-4 px-4 py-8 text-primary">
     <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
       Meet the Team
     </h1>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import LearnMoreButton from "./LearnMoreButton";
 
 const LandingPage = () => (
   <section className="grid h-screen place-content-center justify-items-center gap-4">
@@ -14,12 +15,15 @@ const LandingPage = () => (
     <h1 className="scroll-m-20 font-hot-winner-team text-6xl text-primary lg:text-8xl">
       LA DIABLERIE
     </h1>
-    <Link
-      href="https://www.instagram.com/ladiablerietattoo"
-      className={buttonVariants()}
-    >
-      Book Now
-    </Link>
+    <div className="flex gap-2">
+      <Link
+        href="https://www.instagram.com/ladiablerietattoo"
+        className={buttonVariants()}
+      >
+        Book Now
+      </Link>
+      <LearnMoreButton />
+    </div>
   </section>
 );
 
