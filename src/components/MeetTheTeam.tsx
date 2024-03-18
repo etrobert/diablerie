@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 const MeetTheTeam = () => (
-  <section className="grid gap-4 p-4">
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+  <section className="grid gap-4 px-4 py-8 text-primary">
+    <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
       Meet the Team
     </h1>
     <ul className="grid gap-4">
-      <li>
+      <li className="grid place-items-center gap-2">
         <Image
-          className="max-w-[30rem]"
+          className="w-full max-w-[30rem]"
           src="/ratboi_ttt.jpeg"
           width={1280}
           height={1600}
@@ -18,9 +18,9 @@ const MeetTheTeam = () => (
           Ratboi
         </h2>
       </li>
-      <li>
+      <li className="grid place-items-center gap-2">
         <Image
-          className="max-w-[30rem]"
+          className="w-full max-w-[30rem]"
           src="/cagoule_girl.jpeg"
           width={1440}
           height={1800}
