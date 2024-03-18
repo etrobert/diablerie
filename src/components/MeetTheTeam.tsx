@@ -1,21 +1,25 @@
 import Image from "next/image";
+import ratboiImage from "../images/ratboi_ttt.jpeg";
+import cagouleGirlImage from "../images/cagoule_girl.jpeg";
+import rosarioImage from "../images/rosario.jpeg";
+import marieVenenaImage from "../images/marie-venena.jpeg";
 
 const team = [
   {
     name: "Ratboi",
-    image: { src: "/ratboi_ttt.jpeg", width: 1280, height: 1600 },
+    image: ratboiImage,
   },
   {
     name: "Cagoule Girl",
-    image: { src: "/cagoule_girl.jpeg", width: 1440, height: 1800 },
+    image: cagouleGirlImage,
   },
   {
     name: "Rosario",
-    image: { src: "/rosario.jpeg", width: 320, height: 320 },
+    image: rosarioImage,
   },
   {
     name: "Marie Venena",
-    image: { src: "/marie-venena.jpeg", width: 1440, height: 810 },
+    image: marieVenenaImage,
   },
 ];
 
@@ -32,9 +36,8 @@ const MeetTheTeam = () => (
         <li key={name} className="grid place-items-center gap-2">
           <Image
             className="w-full max-w-[30rem]"
-            src={image.src}
-            width={image.width}
-            height={image.height}
+            src={image}
+            placeholder="blur"
             alt={`Portrait of ${name}`}
           />
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
