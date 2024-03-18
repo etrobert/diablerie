@@ -3,15 +3,15 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
 const LandingPage = () => (
-  <section className="h-screen grid place-content-center gap-4 justify-items-center">
+  <section className="grid h-screen place-content-center justify-items-center gap-4">
     <Image
-      className="absolute object-cover h-full z-[-1] brightness-50"
+      className="absolute z-[-1] h-full object-cover brightness-50"
       src="/studio-4.jpeg"
       width={1440}
       height={1477}
       alt="Picture of the studio"
     />
-    <h1 className="scroll-m-20 text-6xl lg:text-8xl text-primary font-hot-winner-team">
+    <h1 className="scroll-m-20 font-hot-winner-team text-6xl text-primary lg:text-8xl">
       LA DIABLERIE
     </h1>
     <Link

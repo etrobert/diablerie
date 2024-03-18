@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const MeetTheTeam = () => (
-  <section className="grid p-4 gap-4">
+  <section className="grid gap-4 p-4">
     <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
       Meet the Team
     </h1>
