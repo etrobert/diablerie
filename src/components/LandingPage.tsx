@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import LearnMoreButton from "./LearnMoreButton";
 
 const LandingPage = () => (
-  <section className="grid h-screen place-content-center justify-items-center gap-4">
+  <section className="grid h-full place-content-center justify-items-center gap-4">
     <Image
       className="absolute z-[-1] h-full object-cover brightness-50"
       src="/studio-4.jpeg"
