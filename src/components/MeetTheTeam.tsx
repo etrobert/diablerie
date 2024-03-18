@@ -20,11 +20,14 @@ const team = [
 ];
 
 const MeetTheTeam = () => (
-  <section id="meet-the-team" className="grid gap-4 px-4 py-8 text-primary">
+  <section
+    id="meet-the-team"
+    className="grid gap-8 px-4 py-8 text-primary lg:gap-16 lg:py-16"
+  >
     <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
       Meet the Team
     </h1>
-    <ul className="grid gap-4">
+    <ul className="grid gap-4 lg:grid-cols-2">
       {team.map(({ name, image }) => (
         <li key={name} className="grid place-items-center gap-2">
           <Image
