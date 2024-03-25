@@ -24,23 +24,23 @@ const team = [
 ];
 
 const MeetTheTeam = () => (
-  <section
-    id="meet-the-team"
-    className="grid gap-8 px-4 py-8 text-primary lg:gap-16 lg:py-16"
-  >
-    <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
-      Meet the Team
+  <section className="grid gap-8 text-primary lg:gap-16">
+    <h1
+      id="meet-the-team"
+      className="relative top-12 z-10 pl-4 text-4xl font-extrabold tracking-tight lg:top-24 lg:pl-8 lg:text-8xl"
+    >
+      MEET THE TEAM
     </h1>
-    <ul className="grid gap-4 lg:grid-cols-2">
+    <ul className="grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1">
       {team.map(({ name, image }) => (
-        <li key={name} className="grid place-items-center gap-2">
+        <li key={name} className="relative">
           <Image
-            className="w-full max-w-[30rem]"
+            className="h-[24vh] w-full object-cover brightness-75 lg:h-[90vh]"
             src={image}
             placeholder="blur"
             alt={`Portrait of ${name}`}
           />
-          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
             {name}
           </h2>
         </li>
