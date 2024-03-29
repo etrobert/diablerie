@@ -16,9 +16,9 @@ const MeetTheTeam = async () => {
           <li key={name} className="relative">
             <Image
               className="h-[24vh] w-full object-cover brightness-75 lg:h-[90vh]"
-              src={"https:" + coverPicture.fields.file?.url}
-              width={coverPicture.fields.file?.details.image.width}
-              height={coverPicture.fields.file?.details.image.height}
+              src={"https:" + coverPicture.fields.file.url}
+              width={coverPicture.fields.file.details.image.width}
+              height={coverPicture.fields.file.details.image.height}
               alt={`Portrait of ${name}`}
             />
             <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
