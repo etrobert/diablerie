@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { createClient } from "contentful";
+import shuffle from "lodash/shuffle";
 
 const contentfulImageSchema = z.object({
   fields: z.object({
@@ -32,7 +33,9 @@ async function getTeam() {
   });
 
   const entries = await client.getEntries();
-  return teamSchema.parse(entries);
+  const team = teamSchema.parse(entries);
+  team.items = shuffle(team.items);
+  return team;
 }
 
 export default getTeam;
