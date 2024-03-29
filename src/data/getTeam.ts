@@ -15,14 +15,14 @@ const contentfulImageSchema = z.object({
   }),
 });
 
-const tattoerSchema = z.object({
+const tattooerSchema = z.object({
   fields: z.object({
     name: z.string(),
     coverPicture: contentfulImageSchema,
   }),
 });
 
-const teamSchema = z.object({ items: z.array(tattoerSchema) });
+const teamSchema = z.object({ items: z.array(tattooerSchema) });
 
 async function getTeam() {
   const client = createClient({

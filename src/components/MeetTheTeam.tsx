@@ -12,9 +12,9 @@ const MeetTheTeam = async () => {
         MEET THE TEAM
       </h1>
       <ul className="grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1">
-        {team.items.map((tattoer) => {
-          const { name } = tattoer.fields;
-          const coverPicture = tattoer.fields.coverPicture.fields.file;
+        {team.items.map((tattooer) => {
+          const { name } = tattooer.fields;
+          const coverPicture = tattooer.fields.coverPicture.fields.file;
 
           return (
             <li key={name} className="relative">
