@@ -1,8 +1,40 @@
 import Image from "next/image";
 import getTeam from "@/data/getTeam";
 
+import { cn } from "@/lib/utils";
+
+const getGridCss = (teamSize: number) => {
+  switch (teamSize) {
+    case 1:
+      return "grid-rows-1 lg:grid-cols-1";
+    case 2:
+      return "grid-rows-2 lg:grid-cols-2";
+    case 3:
+      return "grid-rows-3 lg:grid-cols-3";
+    case 4:
+      return "grid-rows-4 lg:grid-cols-4";
+    default:
+      throw new Error("Unsupported team size");
+  }
+};
+
+const getImgCss = (teamSize: number) => {
+  switch (teamSize) {
+    case 2:
+      return "h-[48vh]";
+    case 3:
+      return "h-[32vh]";
+    case 4:
+      return "h-[24vh]";
+    default:
+      throw new Error("Unsupported team size");
+  }
+};
+
 const MeetTheTeam = async () => {
   const team = await getTeam();
+  const teamSize = team.items.length;
+
   return (
     <section className="grid gap-8 text-primary lg:gap-16">
       <h1
@@ -11,7 +43,7 @@ const MeetTheTeam = async () => {
       >
         MEET THE TEAM
       </h1>
-      <ul className="grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1">
+      <ul className={cn(getGridCss(teamSize), "grid lg:grid-rows-1")}>
         {team.items.map((tattooer) => {
           const { name } = tattooer.fields;
           const coverPicture = tattooer.fields.coverPicture.fields.file;
@@ -19,7 +51,10 @@ const MeetTheTeam = async () => {
           return (
             <li key={name} className="relative">
               <Image
-                className="h-[24vh] w-full object-cover brightness-75 lg:h-[90vh]"
+                className={cn(
+                  getImgCss(teamSize),
+                  "w-full object-cover brightness-75 lg:h-[90vh]",
+                )}
                 src={"https:" + coverPicture.url}
                 width={coverPicture.details.image.width}
                 height={coverPicture.details.image.height}
