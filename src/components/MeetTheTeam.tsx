@@ -1,5 +1,29 @@
 import Image from "next/image";
+import { z } from "zod";
 import { createClient } from "contentful";
+
+const contentfulImageSchema = z.object({
+  fields: z.object({
+    file: z.object({
+      url: z.string(),
+      details: z.object({
+        image: z.object({
+          width: z.number().positive().int(),
+          height: z.number().positive().int(),
+        }),
+      }),
+    }),
+  }),
+});
+
+const tattoerSchema = z.object({
+  fields: z.object({
+    name: z.string(),
+    coverPicture: contentfulImageSchema,
+  }),
+});
+
+const teamSchema = z.object({ items: z.array(tattoerSchema) });
 
 async function getTeam() {
   const client = createClient({
@@ -9,15 +33,11 @@ async function getTeam() {
   });
 
   const entries = await client.getEntries();
-  return entries.items.map((item) => item.fields);
+  return teamSchema.parse(entries);
 }
 
 const MeetTheTeam = async () => {
   const team = await getTeam();
-  console.log(team);
-  const coverPicture = team[1].coverPicture.fields;
-  console.log(coverPicture);
-  console.log(coverPicture.file);
   return (
     <section className="grid gap-8 text-primary lg:gap-16">
       <h1
@@ -27,7 +47,7 @@ const MeetTheTeam = async () => {
         MEET THE TEAM
       </h1>
       <ul className="grid grid-rows-4 lg:grid-cols-4 lg:grid-rows-1">
-        {team.map(({ name, coverPicture }) => (
+        {team.items.map(({ fields: { name, coverPicture } }) => (
           <li key={name} className="relative">
             <Image
               className="h-[24vh] w-full object-cover brightness-75 lg:h-[90vh]"
