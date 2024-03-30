@@ -22,11 +22,11 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
         className="h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
         style={{ "--url": `url(https:${coverPicture.url})` } as CSSProperties}
       />
-      <h2 className="absolute bottom-0 grid grid-flow-col items-center gap-1 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
+      <h2 className="absolute bottom-0 grid grid-flow-col items-center gap-1 px-2 text-2xl font-semibold tracking-tight lg:gap-2 lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
         {instagramLink && (
           <Link href={instagramLink}>
-            <Instagram />
+            <Instagram className="lg:h-8 lg:w-8" />
           </Link>
         )}
       </h2>
