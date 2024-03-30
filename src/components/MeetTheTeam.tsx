@@ -30,20 +30,16 @@ const MeetTheTeam = ({ team }: { team: Team }) => {
   useEffect(() => setShuffledTeam(() => shuffle(team.items)), [team]);
 
   return (
-    <section className="grid gap-8 text-primary lg:gap-16">
+    <section className="grid h-full grid-rows-[auto_1fr] text-primary">
       <h1
         id="meet-the-team"
-        className="relative top-12 z-10 pl-4 text-4xl font-extrabold tracking-tight lg:top-24 lg:pl-8 lg:text-8xl"
+        className="relative top-3 z-10 pl-4 text-4xl font-extrabold tracking-tight lg:top-8 lg:pl-8 lg:text-8xl"
       >
         MEET THE TEAM
       </h1>
-      <ul className={cn(getGridCss(teamSize), "grid lg:grid-rows-1")}>
+      <ul className={cn(getGridCss(teamSize), "grid h-full lg:grid-rows-1")}>
         {shuffledTeam.map((tattooer) => (
-          <MeetTheTeamTattooer
-            key={tattooer.fields.name}
-            tattooer={tattooer}
-            teamSize={teamSize}
-          />
+          <MeetTheTeamTattooer key={tattooer.fields.name} tattooer={tattooer} />
         ))}
       </ul>
     </section>
