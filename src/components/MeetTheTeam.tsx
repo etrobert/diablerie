@@ -1,7 +1,12 @@
-import Image from "next/image";
-import getTeam from "@/data/getTeam";
+"use client";
 
+import { useEffect, useState } from "react";
+import { shuffle } from "lodash";
+
+import { Team } from "@/data/getTeam";
 import { cn } from "@/lib/utils";
+
+import MeetTheTeamTattooer from "./MeetTheTeamTattooer";
 
 const getGridCss = (teamSize: number) => {
   switch (teamSize) {
@@ -18,22 +23,11 @@ const getGridCss = (teamSize: number) => {
   }
 };
 
-const getImgCss = (teamSize: number) => {
-  switch (teamSize) {
-    case 2:
-      return "h-[48vh]";
-    case 3:
-      return "h-[32vh]";
-    case 4:
-      return "h-[24vh]";
-    default:
-      throw new Error("Unsupported team size");
-  }
-};
-
-const MeetTheTeam = async () => {
-  const team = await getTeam();
+const MeetTheTeam = ({ team }: { team: Team }) => {
   const teamSize = team.items.length;
+  const [shuffledTeam, setShuffledTeam] = useState<Team["items"]>([]);
+
+  useEffect(() => setShuffledTeam(() => shuffle(team.items)), [team]);
 
   return (
     <section className="grid gap-8 text-primary lg:gap-16">
@@ -44,28 +38,13 @@ const MeetTheTeam = async () => {
         MEET THE TEAM
       </h1>
       <ul className={cn(getGridCss(teamSize), "grid lg:grid-rows-1")}>
-        {team.items.map((tattooer) => {
-          const { name } = tattooer.fields;
-          const coverPicture = tattooer.fields.coverPicture.fields.file;
-
-          return (
-            <li key={name} className="relative">
-              <Image
-                className={cn(
-                  getImgCss(teamSize),
-                  "w-full object-cover brightness-75 lg:h-[90vh]",
-                )}
-                src={"https:" + coverPicture.url}
-                width={coverPicture.details.image.width}
-                height={coverPicture.details.image.height}
-                alt={`Portrait of ${name}`}
-              />
-              <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
-                {name}
-              </h2>
-            </li>
-          );
-        })}
+        {shuffledTeam.map((tattooer) => (
+          <MeetTheTeamTattooer
+            key={tattooer.fields.name}
+            tattooer={tattooer}
+            teamSize={teamSize}
+          />
+        ))}
       </ul>
     </section>
   );
