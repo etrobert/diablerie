@@ -1,27 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { shuffle } from "lodash";
 
 import { Team } from "@/data/getTeam";
-import { cn } from "@/lib/utils";
 
 import MeetTheTeamTattooer from "./MeetTheTeamTattooer";
-
-const getGridCss = (teamSize: number) => {
-  switch (teamSize) {
-    case 1:
-      return "grid-rows-1 lg:grid-cols-1";
-    case 2:
-      return "grid-rows-2 lg:grid-cols-2";
-    case 3:
-      return "grid-rows-3 lg:grid-cols-3";
-    case 4:
-      return "grid-rows-4 lg:grid-cols-4";
-    default:
-      throw new Error("Unsupported team size");
-  }
-};
 
 const MeetTheTeam = ({ team }: { team: Team }) => {
   const teamSize = team.items.length;
@@ -37,7 +21,10 @@ const MeetTheTeam = ({ team }: { team: Team }) => {
       >
         MEET THE TEAM
       </h1>
-      <ul className={cn(getGridCss(teamSize), "grid h-full lg:grid-rows-1")}>
+      <ul
+        className="grid h-full grid-rows-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-cols-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-rows-1"
+        style={{ "--team-size": teamSize } as CSSProperties}
+      >
         {shuffledTeam.map((tattooer) => (
           <MeetTheTeamTattooer key={tattooer.fields.name} tattooer={tattooer} />
         ))}
