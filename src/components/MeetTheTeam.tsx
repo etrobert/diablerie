@@ -22,7 +22,7 @@ const MeetTheTeam = ({ team }: { team: Team }) => {
         MEET THE TEAM
       </h1>
       <ul
-        className="grid h-full grid-rows-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-cols-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-rows-1"
+        className="grid h-full lg:grid-cols-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-rows-1"
         style={{ "--team-size": teamSize } as CSSProperties}
       >
         {shuffledTeam.map((tattooer) => (
