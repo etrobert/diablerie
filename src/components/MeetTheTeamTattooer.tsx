@@ -1,4 +1,6 @@
 import Link from "next/link";
+// TODO: Replace with an icon from somewhere else
+// See https://github.com/lucide-icons/lucide/issues/670
 import { Instagram } from "lucide-react";
 
 import { Tattooer } from "@/data/getTeam";
@@ -12,6 +14,7 @@ type Props = {
 const MeetTheTeamTattooer = ({ tattooer }: Props) => {
   const { name } = tattooer.fields;
   const coverPicture = tattooer.fields.coverPicture.fields.file;
+  const instagramLink = tattooer.fields.instagramLink;
 
   return (
     <li key={name} className="relative h-full">
@@ -21,9 +24,11 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
       />
       <h2 className="absolute bottom-0 grid grid-flow-col items-center gap-1 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
-        <Link href="">
-          <Instagram />
-        </Link>
+        {instagramLink && (
+          <Link href={instagramLink}>
+            <Instagram />
+          </Link>
+        )}
       </h2>
     </li>
   );
