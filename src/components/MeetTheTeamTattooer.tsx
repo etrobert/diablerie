@@ -1,5 +1,9 @@
+import Link from "next/link";
+import { Instagram } from "lucide-react";
+
 import { Tattooer } from "@/data/getTeam";
-import { CSSProperties } from "react";
+
+import type { CSSProperties } from "react";
 
 type Props = {
   tattooer: Tattooer;
@@ -15,8 +19,11 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
         className="h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
         style={{ "--url": `url(https:${coverPicture.url})` } as CSSProperties}
       />
-      <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
+      <h2 className="absolute bottom-0 grid grid-flow-col items-center gap-1 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
+        <Link href="">
+          <Instagram />
+        </Link>
       </h2>
     </li>
   );
