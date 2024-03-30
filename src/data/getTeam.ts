@@ -22,7 +22,11 @@ const tattooerSchema = z.object({
   }),
 });
 
+export type Tattooer = z.infer<typeof tattooerSchema>;
+
 const teamSchema = z.object({ items: z.array(tattooerSchema) });
+
+export type Team = z.infer<typeof teamSchema>;
 
 async function getTeam() {
   const client = createClient({
