@@ -25,7 +25,7 @@ const getGridCss = (teamSize: number) => {
 
 const MeetTheTeam = ({ team }: { team: Team }) => {
   const teamSize = team.items.length;
-  const [shuffledTeam, setShuffledTeam] = useState<Team["items"]>([]);
+  const [shuffledTeam, setShuffledTeam] = useState(team.items);
 
   useEffect(() => setShuffledTeam(() => shuffle(team.items)), [team]);
 
