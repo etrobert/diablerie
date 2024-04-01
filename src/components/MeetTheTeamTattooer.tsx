@@ -28,14 +28,14 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
       <Dialog>
         <DialogTrigger asChild>
           <div
-            className="h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
+            className="group h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
             style={
               { "--url": `url(https:${coverPicture.url})` } as CSSProperties
             }
           >
             <Maximize2
               size={64}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity group-hover:opacity-100"
             />
             <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
               {name}
