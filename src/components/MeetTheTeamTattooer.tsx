@@ -4,6 +4,13 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 import { Tattooer } from "@/data/getTeam";
 
@@ -17,21 +24,28 @@ const DialogDemo = ({ tattooer }: Props) => (
       <Button variant="outline">Tattoos</Button>
     </DialogTrigger>
     <DialogContent>
-      {tattooer.fields.tattoos?.map((tattoo) => {
-        const { file, description } = tattoo.fields;
-        const { width, height } = file.details.image;
-        const url = "https:" + file.url;
-        return (
-          <Image
-            key={url}
-            src={url}
-            width={width}
-            height={height}
-            alt={description}
-          />
-        );
-      })}
-      Photos of Tattoos
+      <Carousel>
+        <CarouselContent>
+          {tattooer.fields.tattoos?.map((tattoo) => {
+            const { file, description } = tattoo.fields;
+            const { width, height } = file.details.image;
+            const url = "https:" + file.url;
+            return (
+              <CarouselItem key={url}>
+                <Image
+                  key={url}
+                  src={url}
+                  width={width}
+                  height={height}
+                  alt={description}
+                />
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </DialogContent>
   </Dialog>
 );
