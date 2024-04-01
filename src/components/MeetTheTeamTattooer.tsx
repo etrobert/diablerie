@@ -1,4 +1,10 @@
-import { Maximize2 } from "lucide-react";
+import Link from "next/link";
+import {
+  Maximize2,
+  // TODO: Replace with an icon from somewhere else
+  // See https://github.com/lucide-icons/lucide/issues/670
+  Instagram,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -16,6 +22,7 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
   const { name } = tattooer.fields;
   const coverPicture = tattooer.fields.coverPicture.fields.file;
   const tattoos = tattooer.fields.tattoos;
+  const instagramLink = tattooer.fields.instagramLink;
 
   const column = (
     <div className={cn("relative h-full", tattoos && "group cursor-pointer")}>
@@ -35,6 +42,11 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
       <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
       </h2>
+      {instagramLink && (
+        <Link href={instagramLink}>
+          <Instagram className="absolute bottom-1 right-1 lg:bottom-3 lg:right-3 lg:h-8 lg:w-8" />
+        </Link>
+      )}
     </div>
   );
 

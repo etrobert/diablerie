@@ -20,6 +20,7 @@ const contentfulImageSchema = z.object({
 const tattooerSchema = z.object({
   fields: z.object({
     name: z.string(),
+    instagramLink: z.string().url().optional(),
     coverPicture: contentfulImageSchema,
     tattoos: z.array(contentfulImageSchema).optional(),
   }),
