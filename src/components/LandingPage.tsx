@@ -21,7 +21,7 @@ const LandingPage = () => (
           href="https://www.instagram.com/ladiablerietattoo"
           className={buttonVariants()}
         >
-          Book Now
+          Prendre RDV
         </Link>
         <LearnMoreButton />
       </div>

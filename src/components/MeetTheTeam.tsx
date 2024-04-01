@@ -19,7 +19,7 @@ const MeetTheTeam = ({ team }: { team: Team }) => {
         id="meet-the-team"
         className="relative top-3 z-10 pl-4 text-4xl font-extrabold tracking-tight lg:top-8 lg:pl-8 lg:text-8xl"
       >
-        MEET THE TEAM
+        NOTRE EQUIPE
       </h1>
       <ul
         className="grid h-full lg:grid-cols-[repeat(var(--team-size),_minmax(0,_1fr))] lg:grid-rows-1"

@@ -11,7 +11,7 @@ const LeanMoreButton = () => (
         ?.scrollIntoView({ behavior: "smooth" })
     }
   >
-    Learn More...
+    {"Plus d'Infos..."}
   </Button>
 );
 
