@@ -28,7 +28,7 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
       <Dialog>
         <DialogTrigger asChild>
           <div
-            className="group h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
+            className="group h-full w-full cursor-pointer bg-[image:var(--url)] bg-cover bg-center brightness-75"
             style={
               { "--url": `url(https:${coverPicture.url})` } as CSSProperties
             }
