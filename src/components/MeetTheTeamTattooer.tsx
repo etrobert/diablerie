@@ -18,11 +18,18 @@ const DialogDemo = ({ tattooer }: Props) => (
     </DialogTrigger>
     <DialogContent>
       {tattooer.fields.tattoos?.map((tattoo) => {
-        const { url } = tattoo.fields.file;
-        const { width, height } = tattoo.fields.file.details.image;
-        // TODO: Add alt
-        // TODO: Add key
-        return <Image src={`https:${url}`} width={width} height={height} />;
+        const { file, description } = tattoo.fields;
+        const { width, height } = file.details.image;
+        const url = "https:" + file.url;
+        return (
+          <Image
+            key={url}
+            src={url}
+            width={width}
+            height={height}
+            alt={description}
+          />
+        );
       })}
       Photos of Tattoos
     </DialogContent>
