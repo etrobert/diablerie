@@ -19,6 +19,7 @@ const tattooerSchema = z.object({
   fields: z.object({
     name: z.string(),
     coverPicture: contentfulImageSchema,
+    tattoos: z.array(contentfulImageSchema).optional(),
   }),
 });
 
