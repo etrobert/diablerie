@@ -1,5 +1,7 @@
 import { CSSProperties } from "react";
 
+import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
@@ -9,12 +11,21 @@ type Props = {
   tattooer: Tattooer;
 };
 
-const DialogDemo = () => (
+const DialogDemo = ({ tattooer }: Props) => (
   <Dialog>
     <DialogTrigger asChild>
       <Button variant="outline">Tattoos</Button>
     </DialogTrigger>
-    <DialogContent>Photos of Tattoos</DialogContent>
+    <DialogContent>
+      {tattooer.fields.tattoos?.map((tattoo) => {
+        const { url } = tattoo.fields.file;
+        const { width, height } = tattoo.fields.file.details.image;
+        // TODO: Add alt
+        // TODO: Add key
+        return <Image src={`https:${url}`} width={width} height={height} />;
+      })}
+      Photos of Tattoos
+    </DialogContent>
   </Dialog>
 );
 
@@ -28,7 +39,7 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
         className="h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
         style={{ "--url": `url(https:${coverPicture.url})` } as CSSProperties}
       >
-        <DialogDemo />
+        <DialogDemo tattooer={tattooer} />
       </div>
       <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
