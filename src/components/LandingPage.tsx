@@ -7,7 +7,7 @@ import studioImage from "../images/studio-4.jpeg";
 const LandingPage = () => (
   <section className="relative h-[120%] after:absolute after:bottom-0 after:left-0 after:right-0 after:top-[80%] after:bg-gradient-to-b after:from-transparent after:to-black">
     <Image
-      className="absolute z-[-1] h-full object-cover brightness-50"
+      className="absolute z-[-1] h-full w-full object-cover brightness-50"
       src={studioImage}
       placeholder="blur"
       alt="Picture of the studio"
