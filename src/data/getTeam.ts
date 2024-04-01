@@ -3,6 +3,8 @@ import { createClient } from "contentful";
 
 const contentfulImageSchema = z.object({
   fields: z.object({
+    title: z.string(),
+    description: z.string(),
     file: z.object({
       url: z.string(),
       details: z.object({
