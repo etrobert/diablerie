@@ -14,11 +14,11 @@ import {
 
 import { Tattooer } from "@/data/getTeam";
 
-type Props = {
-  tattooer: Tattooer;
+type DialogProps = {
+  tattoos: NonNullable<Tattooer["fields"]["tattoos"]>;
 };
 
-const DialogDemo = ({ tattooer }: Props) => (
+const DialogDemo = ({ tattoos }: DialogProps) => (
   <Dialog>
     <DialogTrigger asChild>
       <Button variant="outline">Tattoos</Button>
@@ -26,7 +26,7 @@ const DialogDemo = ({ tattooer }: Props) => (
     <DialogContent>
       <Carousel>
         <CarouselContent>
-          {tattooer.fields.tattoos?.map((tattoo) => {
+          {tattoos.map((tattoo) => {
             const { file, description } = tattoo.fields;
             const { width, height } = file.details.image;
             const url = "https:" + file.url;
@@ -50,9 +50,14 @@ const DialogDemo = ({ tattooer }: Props) => (
   </Dialog>
 );
 
+type Props = {
+  tattooer: Tattooer;
+};
+
 const MeetTheTeamTattooer = ({ tattooer }: Props) => {
   const { name } = tattooer.fields;
   const coverPicture = tattooer.fields.coverPicture.fields.file;
+  const tattoos = tattooer.fields.tattoos;
 
   return (
     <li key={name} className="relative h-full">
@@ -60,7 +65,7 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
         className="h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75"
         style={{ "--url": `url(https:${coverPicture.url})` } as CSSProperties}
       >
-        <DialogDemo tattooer={tattooer} />
+        {tattoos && <DialogDemo tattoos={tattoos} />}
       </div>
       <h2 className="absolute bottom-0 px-2 text-2xl font-semibold tracking-tight lg:px-4 lg:pb-2 lg:text-4xl">
         {name}
