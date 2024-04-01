@@ -3,6 +3,8 @@ import { createClient } from "contentful";
 
 const contentfulImageSchema = z.object({
   fields: z.object({
+    title: z.string(),
+    description: z.string(),
     file: z.object({
       url: z.string(),
       details: z.object({
@@ -20,6 +22,7 @@ const tattooerSchema = z.object({
     name: z.string(),
     instagramLink: z.string().url().optional(),
     coverPicture: contentfulImageSchema,
+    tattoos: z.array(contentfulImageSchema).optional(),
   }),
 });
 
