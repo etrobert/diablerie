@@ -28,7 +28,7 @@ const MeetTheTeamTattooer = ({ tattooer }: Props) => {
     <div className={cn("relative h-full", tattoos && "group cursor-pointer")}>
       <div
         className={cn(
-          "h-full w-full bg-[image:var(--url)] bg-cover bg-center brightness-75 ",
+          "h-full w-full bg-(image:--url) bg-cover bg-center brightness-75 ",
           tattoos && "transition-[filter] group-hover:brightness-50",
         )}
         style={{ "--url": `url(https:${coverPicture.url})` } as CSSProperties}
