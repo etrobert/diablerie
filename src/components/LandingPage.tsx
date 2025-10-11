@@ -13,7 +13,7 @@ const LandingPage = () => (
       alt="Picture of the studio"
     />
     <div className="grid h-screen place-content-center gap-3">
-      <h1 className="font-shockerous scroll-m-20 text-5xl text-primary lg:text-8xl">
+      <h1 className="font-shockerous scroll-m-20 text-5xl text-primary lg:text-9xl">
         LA DIABLERIE
       </h1>
       <div className="flex justify-center gap-2">
