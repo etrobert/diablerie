@@ -20,6 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         "hot-winner-team": "var(--font-hot-winner-team)",
+        shockerous: "var(--font-shockerous)",
       },
       colors: {
         border: "hsl(var(--border))",

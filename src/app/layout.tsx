@@ -7,9 +7,15 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 const hotWinnerTeam = localFont({
-  src: "./hot_winner_team/Hot-Winner-Team_DEMO.otf",
+  src: "../fonts/hot_winner_team/Hot-Winner-Team_DEMO.otf",
   display: "swap",
   variable: "--font-hot-winner-team",
+});
+
+const shockerous = localFont({
+  src: "../fonts/shockerous/Shockerous.otf",
+  display: "swap",
+  variable: "--font-shockerous",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={cn(inter.className, hotWinnerTeam.variable, "dark h-full")}
+        className={cn(
+          inter.className,
+          hotWinnerTeam.variable,
+          shockerous.variable,
+          "dark h-full",
+        )}
       >
         {children}
       </body>
